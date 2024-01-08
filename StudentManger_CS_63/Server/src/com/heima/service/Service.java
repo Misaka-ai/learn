@@ -75,7 +75,7 @@ public class Service implements Runnable {
     //更新学生信息
     private void updata(String data) {
         String[] split = data.split(",");
-        Student student = new Student(split[0], split[1], Integer.parseInt(split[2]), split[3]);
+        Student student = new Student(split[1], split[1], Integer.parseInt(split[2]), split[3]);
         dao.updata(split[0], student);
         try {
             writeMessage();
