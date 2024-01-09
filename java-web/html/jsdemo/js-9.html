@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.alert("弹窗提醒")
+    const interval = window.setInterval(function () {
+        console.log("-----------------")
+    }, 1000);
+    const timeout = window.setTimeout(function () {
+        console.log("xxxxxxxxxxxxxxxxx")
+        window.clearInterval(interval);
+    }, 5000);
+    window.clearTimeout(timeout);
+
+    const href = location.href;
+    console.log(href);
+    location.href = "https://www.baidu.com";
+</script>
+</body>
+</html>

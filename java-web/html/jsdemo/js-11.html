@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="h1" src="../img/off.gif"> <br><br>
+
+<div class="cls">传智教育</div>
+<br>
+<div class="cls">黑马程序员</div>
+<br>
+
+<input type="checkbox" name="hobby"> 电影
+<input type="checkbox" name="hobby"> 旅游
+<input type="checkbox" name="hobby"> 游戏
+<script>
+    const elementsByName = document.getElementsByTagNameNS("img")
+    console.log(elementsByName[0]);
+    //id
+    const elementById = document.getElementById("h1");
+    console.log(elementById);
+    //class
+    const elementsByClassName = document.getElementsByClassName("cls");
+    console.log(elementsByClassName);
+    //name
+    const elementsByName1 = document.getElementsByName("hobby");
+    console.log(elementsByName1);
+</script>
+</body>
+</html>
