@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QQ</title>
+    <style>
+        .head {
+            height: 62px;
+            background-color: #227bc9;
+        }
+
+        .content {
+            margin: 0 auto;
+            background-color: #227bc9;
+            height: 800px;
+
+
+        }
+
+        .ver1 {
+            text-align: center;
+            color: aliceblue;
+            font-size: 50px;
+        }
+
+        .ver2 {
+            text-align: center;
+            color: aliceblue;
+            font-size: 70px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #227bc9;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="head"><img class="logo" src="../img/qq.png"></div>
+<div class="content">
+    <p class="ver1">全新版本</p>
+    <p class="ver2">QQ9</p>
+</div>
+<div class="buttons">
+    <input type="button" value="IOS" onclick="IOS()">
+    <input type="button" value="Android" onclick="Android()">
+    <input type="button" value="Window" onclick="onWindow()">
+    <input type="button" value="mac" onclick="oos()">
+</div>
+<script>
+    function oos() {
+        const ecc = document.getElementsByClassName("ver2");
+        for (let i = 0; i < ecc.length; i++) {
+            ecc[i].innerHTML = "<span>欢迎下载Mac版本</span>";
+        }
+    }
+
+    function IOS() {
+        const ecc = document.getElementsByClassName("ver2");
+        for (let i = 0; i < ecc.length; i++) {
+            ecc[i].innerHTML = "<span>欢迎下载IOS版本</span>"
+        }
+    }
+
+    /**/
+
+    function Android() {
+        const ecc = document.getElementsByClassName("ver2");
+        for (let i = 0; i < ecc.length; i++) {
+            ecc[i].innerHTML = "<span>欢迎下载Android版本</span>"
+        }
+    }
+
+    function onWindow() {
+        const ecc = document.getElementsByClassName("ver2");
+        for (let i = 0; i < ecc.length; i++) {
+            ecc[i].innerHTML = "<span>欢迎下载Window版本</span>";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+</head>
+<body>
+<input id="timeInput" type="text" placeholder="输入时间">
+<button onclick="onStart()">开始倒计时</button>
+<span>还是剩时间</span><span id="timedisplay">0</span><span>秒</span>
+<script>
+    function onStart() {
+        //获得还有多少时间的的值
+        const timeDispaly = document.getElementById("timedisplay");
+        //获取文本框中的元素并用变量接收
+        const time = document.getElementById("timeInput");
+        //转换值
+        let timeVal = parseInt(time.value);
+        //timeVal赋值个timedisplay
+        timeDispaly.innerText = timeVal + ' ';
+        //判断timeVal的值
+        const timeIntertVal = setInterval(() => {
+            if(timeVal <= 0) {
+                clearInterval(timeIntertVal);
+                alert("Countdown finished!");
+            } else {
+                timeVal--;
+                timeDispaly.innerText = timeVal + ' ';
+            }
+        }, 1000);
+
+    }
+</script>
+</body>
+</html>

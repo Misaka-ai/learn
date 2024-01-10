@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="light" src="../img/off.gif"> <br>
+
+<input type="button" value="点亮" onclick="onlight()">
+<input type="button" value="熄灭" onclick="onoff()">
+
+<br> <br>
+
+<input type="text" id="name" value="ITCAST" onfocus="tolower()" onblur="touper">
+<br> <br>
+
+<input type="checkbox" name="hobby"> 电影
+<input type="checkbox" name="hobby"> 旅游
+<input type="checkbox" name="hobby"> 游戏
+<br>
+
+<input type="button" value="全选" onclick="checkdeAll()">
+<input type="button" value="反选" onclick="notChecked()">
+
+<script>
+    function onlight() {
+        const light = document.getElementById("light");
+        light.src = "../img/on.gif"
+    }
+
+    function onoff() {
+        const light = document.getElementById("light");
+        light.src = "../img/off.gif"
+    }
+
+    function tolower() {
+        const str = document.getElementById("name");
+        str.value = str.value.toLowerCase();
+
+    }
+
+    function touper() {
+        const str = document.getElementById("name");
+        str.value = str.value.toUpperCase();
+    }
+function checkdeAll(){
+
+}
+
+</script>
+</body>
+</html>

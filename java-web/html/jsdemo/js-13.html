@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="button" id="btn1" value="事件绑定1" onclick="showAlert()">
+<input type="button" id="btn2" value="事件绑定2">
+<script>
+    function showAlert() {
+        alert("你猜我猜你猜不猜")
+    }
+
+    const elementById = document.getElementById("btn2");
+    elementById.onclick = function () {
+        alert("你猜我猜你猜不猜")
+    }
+</script>
+</body>
+</html>

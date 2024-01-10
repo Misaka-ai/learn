@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span {
+            color: red;
+        }
+
+    </style>
+
+</head>
+<body>
+<img id="h1" src="../img/off.gif"> <br><br>
+
+<div class="cls">传智教育</div>
+<br>
+<div class="cls">黑马程序员</div>
+<br>
+
+<input type="checkbox" name="hobby"> 电影
+<input type="checkbox" name="hobby"> 旅游
+<input type="checkbox" name="hobby"> 游戏
+<script>
+    alert()
+    const elementById = document.getElementById("h1");
+    elementById.src = "../img/on.gif"
+
+    const div = document.getElementsByTagName("div");
+    for (let i = 0; i < div.length; i++) {
+        const divElement = div[i];
+        divElement.innerHTML = divElement.innerHTML + "<span>我很酷</span>"
+    }
+    //是复选框处于选中状态
+    const elementsByName = document.getElementsByName("hobby");
+    for (let i = 0; i < elementsByName.length; i++) {
+        const elementsByNameElement = elementsByName[i];
+        elementsByNameElement.checked = true;
+    }
+</script>
+
+</body>
+</html>
