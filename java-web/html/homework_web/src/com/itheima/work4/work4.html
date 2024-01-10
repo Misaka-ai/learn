@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<button id="toggleButton" onclick="toggleRollCall()">Start</button>
+<h1 id="nameDisplay"></h1>
+<h2 id="countDisplay"></h2>
+
+<script>
+    const names = ["Alice", "Bob", "Charlie", "David", "Eve"];
+    const counts = {};
+    let intervalId = null;
+
+    function startRollCall() {
+        intervalId = setInterval(() => {
+            const randomIndex = Math.floor(Math.random() * names.length);
+            const name = names[randomIndex];
+            document.getElementById("nameDisplay").innerText = name;
+
+            if (!counts[name]) {
+                counts[name] = 0;
+            }
+            counts[name]++;
+            document.getElementById("countDisplay").innerText = `Count: ${counts[name]}`;
+        }, 100);
+    }
+
+    function stopRollCall() {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+
+    function toggleRollCall() {
+        const button = document.getElementById("toggleButton");
+        if (button.innerText === "Start") {
+            startRollCall();
+            button.innerText = "Stop";
+        } else {
+            stopRollCall();
+            button.innerText = "Start";
+        }
+    }
+</script>
+</body>
+</html>
