@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #ya{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <script src="js/vue.js"></script>
@@ -19,22 +24,92 @@
     <span>{{text}}</span>
     <button @click="hello"></button>
 
-<!--    撒大苏打·-->
+    <!--    撒大苏打·-->
     <button @click="showJD">京东</button>
     <button @click="showBD">京东</button>
+    <span v-if="age<=35">年轻人</span>
+    <span v-if="age>35&&age<=60">中年人</span>
+    <span v-if="age>=60">老年人</span>
+    <br>
+    <span v-show="age<=35">年轻人</span>
+    <span v-show="age>35&&age<=60">中年人</span>
+    <span v-show="age>=60">老年人</span>
+    <br>
+   <p> <span id="ya" v-for="(addr,index) in addres">
+    {{index + 1+'.'}}  {{addr}}<br>
+
+    </span></p>
+
+    //创建表格
+    <table>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>成绩</th>
+            <th>等级</th>
+        </tr>
+        <tr v-for="(stdent,index) in arr">
+            <td>{{index +1}}</td>d
+            <td>{{stdent.name}}</td>d
+            <td>{{stdent.age}}</td>d
+            <td>{{stdent.gender===1?'男':'女'}}</td>d
+            <td>{{stdent.score}}</td>d
+           <td>
+               <span v-if="stdent.score<60">不及格</span>
+               <span v-if="stdent.score<60">不及格</span>
+               <span v-if="stdent.score<60">不及格</span>
+           </td>
+        </tr>
+
+    </table>
+
+
 </div>
 
 
 <script>
-    const {createApp, ref} = Vue
+    const {createApp, ref,onMounted} = Vue
 
     createApp({
         setup() {
-            const showJD=function (){
-                imgSrc.value=ref("https://note.youdao.com/yws/public/resource/3931702608744a1ec7ba380c17f75ad6/xmlnote/WEBRESOURCE33432d313baf87d8a89233221a7654d6/5775")
+            onMounted(()=>{
+                alert("fuck")
+            })
+            const arr=[
+                {
+                    "name": "Tom",
+                    "age": 20,
+                    "gender": 1,
+                    "score": 78
+                },
+                {
+                    "name": "Rose",
+                    "age": 18,
+                    "gender": 2,
+                    "score": 86
+                },
+                {
+                    "name": "Jerry",
+                    "age": 26,
+                    "gender": 1,
+                    "score": 90
+                },
+                {
+                    "name": "Tony",
+                    "age": 30,
+                    "gender": 1,
+                    "score": 52
+                }
+            ]
+            const addres = ref(['北京', '上海', '广州', '深圳', '成都', '杭州'])
+            const age = ref(0)
+            const showJD = function () {
+                imgSrc.value = ref("https://note.youdao.com/yws/public/resource/3931702608744a1ec7ba380c17f75ad6/xmlnote/WEBRESOURCE33432d313baf87d8a89233221a7654d6/5775")
             }
-            const showDB=function (){
-                imgSrc.value=ref("https://note.youdao.com/yws/public/resource/3931702608744a1ec7ba380c17f75ad6/xmlnote/WEBRESOURCE33432d313baf87d8a89233221a7654d6/5775")
+            const showDB = function () {
+                imgSrc.value = ref("https://note.youdao.com/yws/public/resource/3931702608744a1ec7ba380c17f75ad6/xmlnote/WEBRESOURCE33432d313baf87d8a89233221a7654d6/5775")
             }
 
 
@@ -45,8 +120,8 @@
                 width: '144px',
                 height: '256px'
             })
-            const text=ref("")
-            const hello= function (){
+            const text = ref("")
+            const hello = function () {
                 alert("hahahahhah")
             }
 
@@ -55,6 +130,9 @@
             }
 
             return {
+                arr,
+                addres,
+                age,
                 showJD,
                 showDB,
                 message,
