@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="js/vue.js"></script>
+
+<div id="app">
+    {{ message }}
+    <!--实现一个计数器-->
+    <button v-on:click="sum()">点击</button>
+    {{count}}
+    <!--渲染一张图片-->
+    <img v-bind:src="imgSrc" v-bind:style="imgStyle">
+    <!--    双向绑定-->
+    <input v-model="imgSrc">
+    <span>{{text}}</span>
+</div>
+
+
+<script>
+    const {createApp, ref} = Vue
+
+    createApp({
+        setup() {
+            const message = ref('Hello vue!')
+            const count = ref(0)
+            const imgSrc = ref("http://heima.liliudong.com/image/baidu_log_540_258.png")
+            const imgStyle = ref({
+                width: '144px',
+                height: '256px'
+            })
+            const text=ref("")
+
+            function sum() {
+                count.value++;
+            }
+
+            return {
+                message,
+                count,
+                sum,
+                imgSrc,
+                imgStyle,
+                text
+            }
+        }
+    }).mount('#app')
+</script>
+</body>
+</html>
