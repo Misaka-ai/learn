@@ -17,6 +17,11 @@
     <!--    双向绑定-->
     <input v-model="imgSrc">
     <span>{{text}}</span>
+    <button @click="hello"></button>
+
+<!--    撒大苏打·-->
+    <button @click="showJD">京东</button>
+    <button @click="showBD">京东</button>
 </div>
 
 
@@ -25,6 +30,14 @@
 
     createApp({
         setup() {
+            const showJD=function (){
+                imgSrc.value=ref("https://note.youdao.com/yws/public/resource/3931702608744a1ec7ba380c17f75ad6/xmlnote/WEBRESOURCE33432d313baf87d8a89233221a7654d6/5775")
+            }
+            const showDB=function (){
+                imgSrc.value=ref("https://note.youdao.com/yws/public/resource/3931702608744a1ec7ba380c17f75ad6/xmlnote/WEBRESOURCE33432d313baf87d8a89233221a7654d6/5775")
+            }
+
+
             const message = ref('Hello vue!')
             const count = ref(0)
             const imgSrc = ref("http://heima.liliudong.com/image/baidu_log_540_258.png")
@@ -33,18 +46,24 @@
                 height: '256px'
             })
             const text=ref("")
+            const hello= function (){
+                alert("hahahahhah")
+            }
 
             function sum() {
                 count.value++;
             }
 
             return {
+                showJD,
+                showDB,
                 message,
                 count,
                 sum,
                 imgSrc,
                 imgStyle,
-                text
+                text,
+                hello
             }
         }
     }).mount('#app')
