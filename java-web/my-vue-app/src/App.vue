@@ -1,9 +1,10 @@
 <script setup>
-import SecondApp from "./components/SecondApp.vue";
+// import EmPage from "./views/EmPage.vue";
 </script>
-
 <template>
-<second-app></second-app>
+<!--  <em-page></em-page>-->
+ <router-view></router-view>
+
 </template>
 
 <style scoped>

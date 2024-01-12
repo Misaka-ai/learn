@@ -47,8 +47,6 @@ const formItem = ref({
   "gender": undefined,
   "score": undefined
 })
-
-
 </script>
 <template>
   <h1>hello-world</h1>
@@ -60,7 +58,6 @@ const formItem = ref({
     <el-button type="warning">Warning</el-button>
     <el-button type="danger">Danger</el-button>
   </el-row>
-
   <br>
   <!-- 设置表-->
   <el-table :data="tableData" style="width: 100%">
@@ -93,7 +90,7 @@ const formItem = ref({
     </el-table-column>
     <el-table-column label="Update" >
       <template #default="scope">
-        <!--  根据索引更新      -->
+
           <el-dialog
             v-model="dialogVisible"
             title="Tips"
@@ -121,9 +118,6 @@ const formItem = ref({
       </span>
           </template>
         </el-dialog>
-
-
-
       </template>
     </el-table-column>
   </el-table>
