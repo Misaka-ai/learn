@@ -1,9 +1,11 @@
 package com.itheima.springbootquickstart.service;
 
 import com.itheima.springbootquickstart.pojo.Student;
+import com.itheima.springbootquickstart.utils.Result;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface StudentService {
     Student getStudentById(String username);
@@ -21,4 +23,6 @@ public interface StudentService {
     Student upadataStudentById(String id, Student student);
 
     ArrayList<Student> deleteStudentByName(String username);
+
+    ArrayList<Student> deletestudentByNmmes(List<String> usernames);
 }

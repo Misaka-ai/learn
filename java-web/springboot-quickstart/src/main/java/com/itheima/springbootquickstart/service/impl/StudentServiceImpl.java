@@ -5,10 +5,12 @@ import com.itheima.springbootquickstart.dao.StudentDao;
 import com.itheima.springbootquickstart.pojo.Student;
 import com.itheima.springbootquickstart.service.StudentService;
 
+import com.itheima.springbootquickstart.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -100,6 +102,11 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public ArrayList<Student> deleteStudentByName(String username) {
         return studentDao.deleteStudentByName(username);
+    }
+//删除多个根据名字
+    @Override
+    public ArrayList<Student> deletestudentByNmmes(List<String> usernames) {
+    return   studentDao.deletestudentByNmmes(usernames);
     }
 
     //获得集合中的全部数据

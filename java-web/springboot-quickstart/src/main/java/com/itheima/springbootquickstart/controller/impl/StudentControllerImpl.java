@@ -9,16 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class StudentControllerImpl implements StudentController {
 
- //   private StudentService studentService=new StudentServiceImpl();
- private final StudentService studentService;
+    //   private StudentService studentService=new StudentServiceImpl();
+    private final StudentService studentService;
+
     @Autowired
     public StudentControllerImpl(StudentService studentService) {
         this.studentService = studentService;
     }
+
     //注册
     @PostMapping("/application/json")
     public Result listStuent(@RequestBody Student student) {
@@ -86,10 +89,18 @@ public class StudentControllerImpl implements StudentController {
     }
 
     //删除所有名字一样的
-    @DeleteMapping("users/delBatch/{username}")
+    /*@DeleteMapping("users/delBatch/{username}")
     public Result deleteByName(@PathVariable String username) {
         ArrayList<Student> students = studentService.deleteStudentByName(username);
-        return Result.success("删除后的集合"+students);
+        return Result.success("删除后的集合" + students);
 
+    }*/
+
+    @DeleteMapping("/users/delBatch/{usernames}")
+    public Result deleteBatch(@PathVariable List<String> usernames) {
+
+        ArrayList<Student> students = studentService.deletestudentByNmmes(usernames);
+        return Result.success(students);
     }
+
 }

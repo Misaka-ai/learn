@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
+
 @Repository
 public class StudentDaoImpl implements StudentDao {
     private static ArrayList<Student> students;
@@ -60,6 +62,15 @@ public class StudentDaoImpl implements StudentDao {
     public ArrayList<Student> deleteStudentByName(String username) {
         students.removeIf(student -> student.getUsername().equals(username));
         saveStudent();
+        return students;
+    }
+
+    @Override
+    public ArrayList<Student> deletestudentByNmmes(List<String> usernames) {
+        for (String username : usernames) {
+            // 这里假设你已经有了一个deleteByName方法
+            deleteStudentByName(username);
+        }
         return students;
     }
 
